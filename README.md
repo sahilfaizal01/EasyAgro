@@ -1,5 +1,5 @@
 # EasyAgro
-Agriculture Analytics and Assistance Portal 
+Agriculture Analytics and Assistance Portal - 
 Flask Application with deep learning models working in the backend for analysis 
 
 Prerequisites:
