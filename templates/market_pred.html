@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+        integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+
+    <title>Market Price Estimator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+       
+    
+
+
+    <style>
+        body{
+           background-color: cyan;
+        }
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .border img {
+            border-radius: 15px;
+            border: 2px solid black;
+        }
+        
+        table.vitamins {
+    margin: 20px 0 0 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: #212121;
+    color: #fff;
+}
+
+table.vitamins th, table.vitamins td {
+    text-align: center;
+}
+
+table.vitamins thead {
+    line-height: 12px;
+    background: #2e63e7;
+    text-transform: uppercase;
+}
+
+table.vitamins thead th {
+    color: #fff;
+    padding: 10px;
+    letter-spacing: 1px;
+    vertical-align: bottom;
+}
+
+table.vitamins thead th:nth-child(1) {
+    width: 20%;
+    text-align: left;
+    padding-left: 20px;
+}
+
+table.vitamins thead th:nth-child(2) {
+    width: 30%;
+}
+
+table.vitamins thead th:nth-child(3) {
+    width: 35%;
+}
+
+table.vitamins thead th:nth-child(4) {
+    width: 15%;
+}
+
+table.vitamins tbody {
+    font-size: 1em;
+    line-height: 15px;
+}
+
+table.vitamins tbody tr {
+    border-top: 2px solid rgba(109, 176, 231, 0.8);
+    transition: background 0.6s, color 0.6s;
+}
+
+table.vitamins tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+table.vitamins tbody tr:hover {
+    color: #000;
+    background: rgba(255, 255, 255, 0.7);
+    font-weight: 900;
+}
+
+table.vitamins tbody td {
+    padding: 12px;
+}
+
+table.vitamins tbody tr:hover td:first-child {
+    background: rgba(0,0,0,0);
+}
+
+table.vitamins tbody td:first-child {
+    text-align: left;
+    padding-left: 20px;
+    font-weight: 700;
+    background: red;
+    transition: background 0.6s;
+    
+}
+
+table.vitamins tbody td:nth-child(3) {
+    background: green;
+}
+
+table.vitamins tfoot {
+    font-size: 0.8em;
+}
+
+table.vitamins tfoot tr {
+    border-top: 2px solid #2e63e7;
+}
+
+table.vitamins tfoot td {
+    color: rgba(255,255,215,0.6);
+    text-align: left;
+    line-height: 15px;
+    padding: 15px 20px;
+}
+
+
+/* Mobile Layout */
+
+@media screen and (max-width: 400px) {
+    h1 {
+        font-size: 34px;
+        line-height: 36px;
+        padding-left: 15px;
+    }
+
+    article {
+        margin: 10px 15px;
+    }
+
+    table.vitamins {
+        font-size: 0.8em;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container my-2">
+        <div class="row mb-5">
+
+          
+
+            <div class="col-sm">
+
+                <div>
+                    <h1 style="padding: 15px; background-color: #00A3A3; color: #FF1500;"
+                        class="text-center mb-5 content-h1 rounded">Estimated Market Price</h1>
+                </div>
+                <div class="details">            
+         <table class="vitamins">
+        <thead>
+            <tr>
+                <th>Minimum Price</th>
+                <th>Current Price Estimate</th>
+                <th>Maximum Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ minim }}</td>
+                <td>{{ prediction_text }}</td>
+                <td>{{ maxi }}</td>
+            </tr>
+        </tbody>
+    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div>
+     <canvas id="myChart"></canvas>
+     
+     <script>
+  const labels = Utils.months({count: 7});
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'My First Dataset',
+    data: [65, 59, 80, 81, 56, 55, 40],
+    fill: false,
+    borderColor: 'rgb(75, 192, 192)',
+    tension: 0.1
+  }]
+};
+
+  const config = {
+  type: 'line',
+  data: data,
+};
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
+   </div>
+
+</body>
+
+</html>
+
+

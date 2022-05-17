@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crop Recommendation Model</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background: url(/static/images/soil1.jpg) no-repeat 0px 0px;
+            background-size: cover;
+        }
+        div.main{
+            width:400px;
+            margin: 100px auto 0px auto;
+        }
+        h2{
+            text-align: center;
+            padding: 20px;
+            font-family: sans-serif;
+        }
+        div.enter{
+            background-color: rgba(0,0,0,0.5);
+            width:100%;
+            font-size: 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 2px 2px 15px
+            rgba(0,0,0,0.3);
+            color: #fff;;
+        }
+        form#enter{
+            margin:40px;
+        }
+        label{
+            font-family: sans-serif;
+            font-size: 18px;
+            font-style: italic;
+        }
+        input#textarea{
+            width:300px;
+            border:1px solid #ddd;
+            border-radius: 3px;
+            outline: 0;
+            padding: 7px;
+            background-color: #fff;
+            box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+        }
+        input#submit{
+            width:200px;
+            padding: 7px;
+            font-size: 16px;
+            font-family: sans-serif;
+            font-weight: 600;
+            border-radius: 3px;
+            background-color: rgba(250,100,0,0.8);
+            color:#fff;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+        label,span,h2{
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+        }
+        table.t1 tbody td {
+          padding: 12px;
+        }
+        table.t1 tbody td:nth-child(2) {
+           background: blue;
+        }
+        table.t1 tbody td:nth-child(1) {
+           background: red;
+        }
+        table.t1 thead th:nth-child(1) {
+    width: 20%;
+    text-align: left;
+    padding-left: 20px;
+}
+table.t1 {
+    margin: 20px 0 0 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: #212121;
+    color: #fff;
+}
+
+table.t1 th, table.t1 td {
+    text-align: center;
+}
+
+table.t1 thead {
+    line-height: 12px;
+    background: #2e63e7;
+    text-transform: uppercase;
+}
+
+table.t1 thead th {
+    color: #fff;
+    padding: 10px;
+    letter-spacing: 1px;
+    vertical-align: bottom;
+}
+
+table.t1 thead th:nth-child(2) {
+    width: 30%;
+}
+
+table.t1 tbody {
+    font-size: 1em;
+    line-height: 15px;
+}
+
+table.t1 tbody tr {
+    border-top: 2px solid rgba(109, 176, 231, 0.8);
+    transition: background 0.6s, color 0.6s;
+}
+
+table.t1 tbody tr:hover {
+    color: #000;
+    background: rgba(255, 255, 255, 0.7);
+    font-weight: 900;
+}
+
+table.t1 tbody td {
+    padding: 12px;
+}
+
+    </style>
+    </head>
+    <body>
+        <div class="main">
+        <h1 style = "color:cyan">The type number of crop recommended is:
+        {{ prediction_text }}
+        </h1>
+         <table class="t1">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Crop Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0</td>
+                <td>Grapes</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Mango</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Mulberry</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Pomegranate</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Potato</td>
+            </tr>
+        </tbody>
+    </table>
+    
+        </div>
+    </body>
+</html>
